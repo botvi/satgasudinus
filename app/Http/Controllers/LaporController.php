@@ -14,10 +14,10 @@ class LaporController extends Controller
         return view('pageadmin.lapor.index', compact('lapors'));
     }
 
-    public function create()
-    {
-        return view('pageadmin.lapor.create');
-    }
+    // public function create()
+    // {
+    //     return view('pageadmin.lapor.create');
+    // }
 
     public function store(Request $request)
     {
@@ -75,8 +75,9 @@ class LaporController extends Controller
     public function show($id)
     {
         $lapor = Lapor::find($id);
-        return view('lapor.show', compact('lapor'));
+        return view('pageadmin.lapor.show', compact('lapor'));
     }
+    
 
     public function edit($id)
     {

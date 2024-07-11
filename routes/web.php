@@ -6,8 +6,14 @@ use App\Http\Controllers\{
     KegiatanController,
     DokumenController,
     GaleriController,
-    LaporController
-
+    LaporController,
+    HomeController,
+    WebKegiatanController,
+    WebGaleriController,
+    WebLaporController,
+    WebDokumenController,
+    WebProfilController,
+    LoginController
 };
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +26,14 @@ use App\Http\Controllers\{
 |
 */
 
+Route::get('/kelolasatgas', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/kelolasatgas', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+// ADMIN DASHBOARD
+Route::middleware(['auth'])->group(function () {
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
 
 Route::get('kegiatans', [KegiatanController::class, 'index'])->name('kegiatans.index');
@@ -49,9 +61,29 @@ Route::put('/galeris/{id}', [GaleriController::class, 'update'])->name('galeris.
 Route::delete('/galeris/{id}', [GaleriController::class, 'destroy'])->name('galeris.destroy');
 
 Route::get('/lapor', [LaporController::class, 'index'])->name('lapor.index');
-Route::get('/lapor/create', [LaporController::class, 'create'])->name('lapor.create');
+Route::get('/lapor/{id}', [LaporController::class, 'show'])->name('lapor.show');
+// Route::get('/lapor/create', [LaporController::class, 'create'])->name('lapor.create');
 Route::post('/lapor', [LaporController::class, 'store'])->name('lapor.store');
 Route::get('/lapor/{id}', [LaporController::class, 'show'])->name('lapor.show');
 Route::get('/lapor/{id}/edit', [LaporController::class, 'edit'])->name('lapor.edit');
 Route::put('/lapor/{id}', [LaporController::class, 'update'])->name('lapor.update');
 Route::delete('/lapor/{id}', [LaporController::class, 'destroy'])->name('lapor.destroy');
+
+});
+
+// ADMIN DASHBOARD
+
+
+// WEB
+Route::get('/', [HomeController::class, 'home'])->name('web.home');
+Route::get('/satgas/kegiatan', [WebKegiatanController::class, 'kegiatan'])->name('web.kegiatan');
+Route::get('/satgas/galeri', [WebGaleriController::class, 'galeri'])->name('web.galeri');
+
+Route::get('/satgas/lapor', [WebLaporController::class, 'lapor'])->name('web.lapor');
+Route::post('/satgas/lapor', [WebLaporController::class, 'store'])->name('web.store');
+
+Route::get('/satgas/dokumen', [WebDokumenController::class, 'dokumen'])->name('web.dokumen');
+
+Route::get('/satgas/pengantar', [WebProfilController::class, 'pengantar'])->name('web.pengantar');
+Route::get('/satgas/filosofi', [WebProfilController::class, 'filosofi'])->name('web.filosofi');
+// WEB

@@ -7,9 +7,9 @@
                     <div class="d-flex align-items-end row">
                         <div class="col-sm-7">
                             <div class="card-body">
-                                <h5 class="card-title text-primary">Selamat datang 🎉</h5>
+                                <h5 class="card-title text-primary">Selamat Datang di Dashboard Admin Satgas PPKS UDINUS 🎉</h5>
                                 <p class="mb-4">
-                                    Anda dapat melihat berapa jumlah Pertanyaan Uji Kompetensi dan Tebak gambar disini
+                                    Portal Informasi Satgas PPKS Universitas Dian Nuswantoro.
                                 </p>
 
                                

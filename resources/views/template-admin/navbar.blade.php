@@ -23,30 +23,31 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('lapor') ? 'active' : '' }}">
+            <a href="/lapor" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-error-alt"></i>
+                <div data-i18n="Analytics">Laporan</div>
+            </a>
+        </li>
         <li class="menu-item {{ Request::is('kegiatans') ? 'active' : '' }}">
             <a href="/kegiatans" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-calendar-event"></i>
                 <div data-i18n="Analytics">Kegiatan</div>
             </a>
         </li>
         <li class="menu-item {{ Request::is('dokumens') ? 'active' : '' }}">
             <a href="/dokumens" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bxs-file-doc"></i>
                 <div data-i18n="Analytics">Dokumen</div>
             </a>
         </li>
         <li class="menu-item {{ Request::is('galeris') ? 'active' : '' }}">
             <a href="/galeris" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-images"></i>
                 <div data-i18n="Analytics">Galeri</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('lapor') ? 'active' : '' }}">
-            <a href="/lapor" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Lapor</div>
-            </a>
-        </li>
+      
     </ul>
     
 </aside>
