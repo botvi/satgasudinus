@@ -17,11 +17,11 @@
       </div>
       <div class="col-span-1 md:col-span-1">
         <h2 class="text-2xl font-bold mb-4">Sekapur Sirih</h2>
-        <p class="text-gray-700">
+        <p class="text-gray-700 text-justify">
           Mahasiswa berada di rentang usia 18-22 tahun, dimana mereka berada di tahap remaja akhir menuju perkembangan dewasa muda. Santrock (2011) menjelaskan bahwa pada masa ini, mahasiswa berusaha membentuk struktur kehidupannya sendiri dari berbagai sumber informasi dan pengalamannya. Pada masa remaja, seorang anak akan mengalami perkembangan psikologis,
         </p>
-        <div class="mt-8">
-          <a href="Pengantar.html" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Baca Selengkapnya</a>
+        <div class="mt-16">
+          <a href="satgas/pengantar" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Baca Selengkapnya</a>
         </div>
       </div>
   </section>
@@ -50,22 +50,19 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="col-span-1 md:col-span-1">
           <h2 class="text-2xl font-bold mb-4">Lapor</h2>
-          <p class="text-gray-700">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac ex nec felis faucibus ullamcorper. Ut
-            hendrerit nunc ac eros euismod, eget fermentum ipsum consequat. Duis vehicula suscipit odio, nec dignissim
-            odio sagittis et. Sed accumsan massa nec consequat ultrices. Nulla facilisi. Nam vel leo nec tellus iaculis
-            rutrum sed at erat. Vestibulum consequat lectus sed leo pretium varius. Vestibulum dapibus felis eu est
-            finibus.
+          <p class="text-gray-700 mb-16 text-justify">
+            Universitas Dian Nuswantoro berkomitmen untuk melakukan pencegahan dan penanganan segala bentuk kekerasan seksual yang terjadi di lingkungan kampus UDINUS. Laporkan segala bentuk tindak kekerasan seksual ke Tim Satgas PPKS UDINUS melalui link dibawah ini.
           </p>
-          <div class="mt-4">
-            <a href="/satgas/lapor" class="bg-red-500 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Lapor Sekarang</a>
+          <div class="mt-28">
+            <a href="/satgas/lapor" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Lapor Sekarang</a>
           </div>
         </div>
         <div class="col-span-1 md:col-span-1">
-          <img src="https://via.placeholder.com/300" alt="Gambar Lapor" class="w-full h-60 md:max-w-full rounded-md shadow-md">
+          <img src="{{ asset('web') }}/assets/cover3.jpg" alt="Gambar Lapor" class="w-full h-72 md:h-auto rounded-md shadow-md object-cover object-center">
         </div>
       </div>
     </section>
+
   
   <!-- Section 5: Dokumen -->
 <section class="p-10">

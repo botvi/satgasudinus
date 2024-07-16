@@ -11,7 +11,7 @@
         />
         <div class="text-gray-700 md:w-2/3">
             <h3 class='font-bold text-base'>Filosofi Logo Satgas PPKS</h3>
-            <p class='text-sm'><br />
+            <p class='text-sm text-justify'><br />
             1. Simbol Hati <br />
             Elemen berbentuk hati melambangkan empati, kepedulian, serta dukungan untuk melindungi dan memberikan rasa aman kepada seluruh civitas akademika Universitas Dian Nuswantoro. Hal ini mencerminkan tujuan Satgas PPKS yang fokus pada kesejahteraan, perlindungan serta kebersamaan untuk melawan segala bentuk kekerasan dan hal-hal yang berpotensi merusak sebuah harmonisasi kehidupan di lingkungan kampus.
             <br /><br />

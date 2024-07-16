@@ -1,5 +1,3 @@
-<!-- pageweb/lapor.blade.php -->
-
 @extends('template-web.layout')
 
 @section('content')
@@ -54,6 +52,7 @@
         <div>
           <label class="block text-gray-700 mb-2">Status Pelapor</label>
           <select name="status_pelapor" class="w-full p-2 border rounded-lg">
+            <option value="" disabled selected>Pilih Status Pelapor</option>
             <option>Mahasiswa</option>
             <option>Dosen</option>
             <option>Tenaga Kependidikan</option>
@@ -63,6 +62,7 @@
         <div>
           <label class="block text-gray-700 mb-2">Kategori</label>
           <select name="kategori" class="w-full p-2 border rounded-lg">
+            <option value="" disabled selected>Pilih Kategori</option>
             <option>Korban</option>
             <option>Pelapor/Saksi</option>
           </select>
@@ -79,6 +79,7 @@
         <div>
           <label class="block text-gray-700 mb-2">Status Terlapor</label>
           <select name="status_terlapor" class="w-full p-2 border rounded-lg">
+            <option value="" disabled selected>Pilih Status Terlapor</option>
             <option>Mahasiswa</option>
             <option>Dosen</option>
             <option>Tenaga Kependidikan</option>
@@ -123,4 +124,22 @@
     </div>
   </form>
 </div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    let isValid = true;
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      if (input.value.trim() === '' && !input.disabled) {
+        isValid = false;
+        input.classList.add('border-red-500');
+      } else {
+        input.classList.remove('border-red-500');
+      }
+    });
+    if (!isValid) {
+      event.preventDefault();
+      alert('Tidak boleh ada form yang kosong');
+    }
+  });
+</script>
 @endsection

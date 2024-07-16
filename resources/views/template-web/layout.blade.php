@@ -10,20 +10,32 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('web') }}/styles.css">
   @yield('style')
-
 </head>
-<body>
+<body class="relative">
+
+  <!-- Loading Spinner -->
+  <div id="loading" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="loading-dots">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 
   @include('template-web.navbar')
 
-  @yield('content')
+  <!-- Main Content -->
+  <div id="content" class="hidden">
+    <div class="container mx-auto max-w-6xl mb-32">
+      @yield('content')
+    </div>
+    @include('template-web.footer')
+  </div>
 
-  @include('template-web.footer')
-  
   @include('sweetalert::alert')
 
-@yield('script')
+  @yield('script')
 
-<script src="{{ asset('web') }}/script.js"></script>
+  <script src="{{ asset('web') }}/script.js"></script>
 </body>
 </html>

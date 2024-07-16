@@ -24,3 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    const content = document.getElementById('content');
+
+    // Hide loading spinner and show content
+    loading.style.display = 'none';
+    content.classList.remove('hidden');
+});
