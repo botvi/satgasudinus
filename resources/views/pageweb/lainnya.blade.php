@@ -14,8 +14,8 @@
           <p class="mt-1 text-gray-500">
             Some quick example text to build on the card title and make up the bulk of the card's content.
           </p>
-          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="#">
-            Go somewhere
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="https://forms.gle/i4jkn6McQFS3gFZL9">
+            Survey Satgas Dinus Inside
           </a>
         </div>
       </div>
@@ -28,8 +28,8 @@
           <p class="mt-1 text-gray-500">
             Some quick example text to build on the card title and make up the bulk of the card's content.
           </p>
-          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="#">
-            Go somewhere
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="https://forms.gle/i4jkn6McQFS3gFZL9">
+            Survey Satgas UDINUS
           </a>
         </div>
       </div>
@@ -42,8 +42,8 @@
           <p class="mt-1 text-gray-500">
             Some quick example text to build on the card title and make up the bulk of the card's content.
           </p>
-          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="#">
-            Go somewhere
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="https://forms.gle/i4jkn6McQFS3gFZL9">
+            Survey Satgas
           </a>
         </div>
       </div>
