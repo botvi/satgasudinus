@@ -14,7 +14,8 @@ use App\Http\Controllers\{
     WebDokumenController,
     WebProfilController,
     LoginController,
-    WebLainnyaController
+    WebLainnyaController,
+    AdminPasswordController
 };
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,7 @@ Route::get('/galeris/{id}/edit', [GaleriController::class, 'edit'])->name('galer
 Route::put('/galeris/{id}', [GaleriController::class, 'update'])->name('galeris.update');
 Route::delete('/galeris/{id}', [GaleriController::class, 'destroy'])->name('galeris.destroy');
 
-Route::get('/lapor', [LaporController::class, 'index'])->name('lapor.index');
+Route::get('/lapor', [LaporController::class, 'index'])->name('lapor.index')->middleware(['auth', 'always.verify.admin.password']);
 Route::get('/lapor/{id}', [LaporController::class, 'show'])->name('lapor.show');
 // Route::get('/lapor/create', [LaporController::class, 'create'])->name('lapor.create');
 Route::post('/lapor', [LaporController::class, 'store'])->name('lapor.store');
@@ -69,6 +70,12 @@ Route::get('/lapor/{id}', [LaporController::class, 'show'])->name('lapor.show');
 Route::get('/lapor/{id}/edit', [LaporController::class, 'edit'])->name('lapor.edit');
 Route::put('/lapor/{id}', [LaporController::class, 'update'])->name('lapor.update');
 Route::delete('/lapor/{id}', [LaporController::class, 'destroy'])->name('lapor.destroy');
+Route::get('/lapor/download/{id}', [LaporController::class, 'download'])->name('lapor.download');
+
+
+
+Route::get('/verify-password', [AdminPasswordController::class, 'showVerifyPasswordForm'])->name('admin.verify-password');
+Route::post('/verify-password', [AdminPasswordController::class, 'verifyPassword'])->name('admin.verify-password.post');
 
 });
 

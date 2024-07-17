@@ -5,14 +5,36 @@ namespace App\Http\Controllers;
 use App\Models\Lapor;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class LaporController extends Controller
 {
+
+    public function download($id)
+    {
+        $lapor = Lapor::findOrFail($id);
+    
+        $pdf = Pdf::loadView('pageadmin.lapor.pdf', compact('lapor'));
+        return $pdf->download('laporan-'.$lapor->id.'.pdf');
+    }
+
+
     public function index()
     {
         $lapors = Lapor::all();
-        return view('pageadmin.lapor.index', compact('lapors'));
+
+        $totalLapor = Lapor::count();
+
+        $countStatusPelapor = Lapor::selectRaw('status_pelapor, COUNT(*) as count')
+            ->groupBy('status_pelapor')
+            ->pluck('count', 'status_pelapor');
+    
+        $countStatusTerlapor = Lapor::selectRaw('status_terlapor, COUNT(*) as count')
+            ->groupBy('status_terlapor')
+            ->pluck('count', 'status_terlapor');
+    
+        return view('pageadmin.lapor.index', compact('lapors', 'countStatusPelapor', 'countStatusTerlapor','totalLapor'));
     }
+    
 
     // public function create()
     // {
