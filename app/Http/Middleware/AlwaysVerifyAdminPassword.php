@@ -10,11 +10,11 @@ class AlwaysVerifyAdminPassword
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || !$request->session()->has('password_verified')) {
+        if (!Auth::check() || !$request->session()->has('pin_verified')) {
             return redirect()->route('admin.verify-password')->with('redirect_to', $request->url());
         }
 
-        $request->session()->forget('password_verified');
+        $request->session()->forget('pin_verified');
 
         return $next($request);
     }

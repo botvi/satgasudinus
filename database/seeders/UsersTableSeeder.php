@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'SATGAS UDINUS ADMIN',
                 'username' => 'adminsatgasudinus',
                 'email' => 'adminsatgasudinus@udinus.ac.id',
+                'pin' => '1234',
                 'password' => Hash::make('adminsatgasudinus2024'),
                 'created_at' => now(),
                 'updated_at' => now(),

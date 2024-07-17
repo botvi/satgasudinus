@@ -77,6 +77,10 @@ Route::get('/lapor/download/{id}', [LaporController::class, 'download'])->name('
 Route::get('/verify-password', [AdminPasswordController::class, 'showVerifyPasswordForm'])->name('admin.verify-password');
 Route::post('/verify-password', [AdminPasswordController::class, 'verifyPassword'])->name('admin.verify-password.post');
 
+Route::get('/change-pin', [AdminPasswordController::class, 'showChangePinForm'])->name('user.change-pin');
+Route::post('/change-pin', [AdminPasswordController::class, 'changePin'])->name('user.change-pin.post');
+
+
 });
 
 // ADMIN DASHBOARD

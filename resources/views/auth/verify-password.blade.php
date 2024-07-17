@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Verify Password') }}</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>{{ __('Verify PIN') }}</span>
+                    <a href="/change-pin" class="btn btn-sm btn-warning">
+                        Ubah PIN
+                    </a>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.verify-password.post') }}">
@@ -14,10 +19,10 @@
                         <input type="hidden" name="redirect_to" value="{{ session('redirect_to') }}">
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">{{ __('Password') }}</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                            <label for="pin" class="form-label">{{ __('PIN') }}</label>
+                            <input id="pin" type="text" class="form-control @error('pin') is-invalid @enderror" name="pin" required>
 
-                            @error('password')
+                            @error('pin')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -26,7 +31,7 @@
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Verify Password') }}
+                                {{ __('Verify PIN') }}
                             </button>
                         </div>
                     </form>
