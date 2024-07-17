@@ -63,28 +63,48 @@
       </div>
     </section>
 
-  
   <!-- Section 5: Dokumen -->
-<section class="p-10">
-  <h2 class="text-2xl font-bold mb-4">Dokumen</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      @foreach ($dokumen as $item)
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-          <div class="p-4 flex items-center">
-              <div class="mr-4">
-                  <i class="fas fa-file-pdf text-gray-800 text-6xl"></i>
-              </div>
-              <div class="flex-1">
-                  <h3 class="text-xl font-bold mb-2">{{ $item->judul }}</h3>
-                  <p class="text-gray-700 mb-4">{{ $item->deskripsi }}</p>
-                  <a href="{{ asset('dokumen/' . $item->file) }}" class="block bg-gray-800 text-white p-2 rounded-md mt-14 text-center hover:bg-yellow-500 transition duration-300">UNDUH</a>
-              </div>
-          </div>
+  <section class="p-10">
+    <h2 class="text-2xl font-bold mb-4">Akses</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex flex-col bg-white border shadow-sm rounded-xl">
+        <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('web') }}/assets/dokumen.png">
+        <div class="p-4 md:p-5">
+          <h3 class="text-lg font-bold text-gray-800">
+            SK UDINUS 2024
+          </h3>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="satgas/dokumen">
+            DOKUMEN
+          </a>
+        </div>
       </div>
-      @endforeach
-  </div>
-</section>
-
+  
+      <div class="flex flex-col bg-white border shadow-sm rounded-xl">
+        <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('web') }}/assets/cerdas.png">
+        <div class="p-4 md:p-5">
+          <h3 class="text-lg font-bold text-gray-800">
+            CERDAS BERKARAKTER
+          </h3>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="https://belajarbersama-cerdasberkarakter.kemdikbud.go.id/">
+            CERDAS BERKARAKTER
+          </a>
+        </div>
+      </div>
+  
+      <div class="flex flex-col bg-white border shadow-sm rounded-xl">
+        <img class="w-auto item-center h-72 rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description">
+        <div class="p-4 md:p-5">
+          <h3 class="text-lg font-bold text-gray-800">
+            SURVEY
+          </h3>
+          <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300" href="satgas/lainnya">
+            SURVEY SATGAS
+          </a>
+        </div>
+      </div>
+  
+    </div>
+  </section>
 
  <!-- Section 6: Galeri -->
 <section class="p-10">

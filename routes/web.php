@@ -13,7 +13,8 @@ use App\Http\Controllers\{
     WebLaporController,
     WebDokumenController,
     WebProfilController,
-    LoginController
+    LoginController,
+    WebLainnyaController
 };
 /*
 |--------------------------------------------------------------------------
@@ -86,4 +87,6 @@ Route::get('/satgas/dokumen', [WebDokumenController::class, 'dokumen'])->name('w
 
 Route::get('/satgas/pengantar', [WebProfilController::class, 'pengantar'])->name('web.pengantar');
 Route::get('/satgas/filosofi', [WebProfilController::class, 'filosofi'])->name('web.filosofi');
+Route::get('/satgas/lainnya', [WebLainnyaController::class, 'lainnya'])->name('web.lainnya');
+
 // WEB

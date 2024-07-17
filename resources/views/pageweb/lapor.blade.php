@@ -124,22 +124,31 @@
     </div>
   </form>
 </div>
+@endsection
+@section('script')
+<!-- Include SweetAlert2 CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   document.querySelector('form').addEventListener('submit', function(event) {
-    let isValid = true;
-    const inputs = document.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
-      if (input.value.trim() === '' && !input.disabled) {
-        isValid = false;
-        input.classList.add('border-red-500');
-      } else {
-        input.classList.remove('border-red-500');
-      }
-    });
-    if (!isValid) {
-      event.preventDefault();
-      alert('Tidak boleh ada form yang kosong');
+  let isValid = true;
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    if (input.value.trim() === '' && !input.disabled) {
+      isValid = false;
+      input.classList.add('border-red-500');
+    } else {
+      input.classList.remove('border-red-500');
     }
   });
+  if (!isValid) {
+    event.preventDefault();
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Tidak boleh ada form yang kosong'
+    });
+  }
+});
 </script>
 @endsection
