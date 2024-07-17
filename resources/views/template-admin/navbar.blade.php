@@ -41,12 +41,6 @@
                 <div data-i18n="Analytics">Dokumen</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('galeris') ? 'active' : '' }}">
-            <a href="/galeris" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-images"></i>
-                <div data-i18n="Analytics">Galeri</div>
-            </a>
-        </li>
       
     </ul>
     

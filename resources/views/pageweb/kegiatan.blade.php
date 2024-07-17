@@ -14,7 +14,7 @@
           <img src="{{ asset('kegiatan/' . $kegiatan->gambar) }}" alt="{{ $kegiatan->title }}" class="w-full h-48 object-cover" />
           <div class="p-4">
             <h2 class="text-xl font-bold mb-2">{{ $kegiatan->title }}</h2>
-            <p class="text-gray-700">{{ $kegiatan->deskripsi }}</p>
+            <p class="text-gray-700 text-justify">{{ $kegiatan->deskripsi }}</p>
           </div>
         </div>
       @endforeach

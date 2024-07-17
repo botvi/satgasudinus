@@ -105,7 +105,6 @@
                                 <td>{{ $lapor->email }}</td>
                                 <td>
                                     <a href="{{ route('lapor.show', $lapor->id) }}" class="btn btn-sm btn-info">Detail</a>
-                                    <a href="{{ route('lapor.edit', $lapor->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('lapor.destroy', $lapor->id) }}" method="POST" class="d-inline delete-form">
                                         @csrf
                                         @method('DELETE')

@@ -20,7 +20,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi:</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" maxlength="576" required></textarea>
+                                <div id="deskripsiHelp" class="form-text">Maksimal 576 karakter.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="gambar" class="form-label">Gambar:</label>
@@ -33,4 +34,18 @@
             </div>
         </div>
     </div>
+    <script>
+    /* Input Deskripsi */
+        document.getElementById('deskripsi').addEventListener('input', function () {
+            var maxLength = this.getAttribute('maxlength');
+            var currentLength = this.value.length;
+            
+            if (currentLength >= maxLength) {
+                document.getElementById('deskripsiHelp').innerText = 'Anda telah mencapai batas maksimal karakter.';
+            } else {
+                document.getElementById('deskripsiHelp').innerText = 'Maksimal ' + maxLength + ' karakter. ' + (maxLength - currentLength) + ' karakter tersisa.';
+            }
+        });
+    
+    </script>
 @endsection

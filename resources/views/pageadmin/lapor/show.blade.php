@@ -92,5 +92,6 @@
         </div>
 
         <a href="{{ route('lapor.index') }}" class="btn btn-danger">Kembali</a>
+        <a href="{{ route('lapor.download', $lapor->id) }}" class="btn btn-success">Unduh PDF</a>
     </div>
 @endsection

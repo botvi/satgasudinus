@@ -10,6 +10,12 @@
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
+  .line-clamp-5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+}
 /* Navbar.html */
   .dropdown-menu {
     display: none;
