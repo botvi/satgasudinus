@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold mb-8 text-center">Filosofi</h1>
     <div class="p-10 flex flex-col md:flex-row items-center md:items-start">
         <img
-            src="{{ asset('web') }}/assets/logo.png" 
+            src="{{ asset('env') }}/logo.png" 
             alt="Filosofi Satgas PPKS"
             class="mb-4 md:mb-0 md:mr-4 w-full md:w-1/3 rounded-md shadow-md"
         />

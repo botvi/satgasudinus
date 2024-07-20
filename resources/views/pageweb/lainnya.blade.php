@@ -6,7 +6,7 @@
 
   <div class="container mx-auto px-6 mb-72">
     <div class="md:flex mt-8 md:-mx-4">
-        <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2" style="background-image: url('{{ asset('web') }}/assets/survei.jpg');">
+        <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2" style="background-image: url('{{ asset('env') }}/survei.jpg');">
             <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                 <div class="px-10 max-w-xl">
                     <h2 class="text-2xl text-white font-semibold">SURVEI SATGAS UDINUS</h2>
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('{{ asset('web') }}/assets/survei2.jpg');">
+        <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('{{ asset('env') }}/survei2.jpg');">
             <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                 <div class="px-10 max-w-xl">
                     <h2 class="text-2xl text-white font-semibold">SURVEI SATGAS DINUS INSIDE</h2>

@@ -6,7 +6,7 @@
     
     <section
         class="relative bg-cover bg-center h-96"
-        style="background-image: url('{{ asset('web') }}/assets/cover2.jpg'); background-size: cover; background-position: center;">
+        style="background-image: url('{{ asset('env') }}/cover2.jpg'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
     </section>
 

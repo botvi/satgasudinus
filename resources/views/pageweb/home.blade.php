@@ -2,7 +2,7 @@
 @section('content')
 <div class="mx-auto max-w-6xl my-5">
     <!-- Section 1: Welcome Banner -->
-    <section class="relative bg-cover bg-center h-96 mt-32" style="background-image: url('{{ asset('web') }}/assets/cover.jpg');">
+    <section class="relative bg-cover bg-center h-96 mt-32" style="background-image: url('{{ asset('env') }}/cover.jpg');">
         <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
             <h1 class="text-2xl md:text-4xl text-white font-bold">Selamat Datang di Satgas PPKS UDINUS</h1>
@@ -13,7 +13,7 @@
     <!-- Section 2: Pengantar -->
     <section class="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="col-span-1 md:col-span-1">
-            <img src="{{ asset('web') }}/assets/cover2.jpg" alt="Foto Pengantar" class="w-full h-48 md:h-72 rounded-md shadow-md">
+            <img src="{{ asset('env') }}/cover2.jpg" alt="Foto Pengantar" class="w-full h-48 md:h-72 rounded-md shadow-md">
         </div>
         <div class="col-span-1 md:col-span-1">
             <h2 class="text-2xl font-bold">Sekapur Sirih</h2>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="col-span-1 md:col-span-1">
-                <img src="{{ asset('web') }}/assets/cover3.jpg" alt="Gambar Lapor" class="w-full h-72 md:h-auto rounded-md shadow-md object-cover object-center">
+                <img src="{{ asset('env') }}/cover3.jpg" alt="Gambar Lapor" class="w-full h-72 md:h-auto rounded-md shadow-md object-cover object-center">
             </div>
         </div>
     </section>
@@ -101,7 +101,7 @@
                             DOKUMEN SATGAS
                         </h3>
                     </div>
-                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('web') }}/assets/dokumen.png">
+                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('env') }}/dokumen.png">
                 </a>
                 
                 <a href="https://belajarbersama-cerdasberkarakter.kemdikbud.go.id/" class="flex flex-col bg-white shadow-md rounded-lg overflow-hidden">
@@ -110,7 +110,7 @@
                             CERDAS BERKARAKTER
                         </h3>
                     </div>
-                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('web') }}/assets/cerdas.jpg">
+                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('env') }}/cerdas.jpg">
                 </a>
                 
                 <a href="satgas/lainnya" class="flex flex-col bg-white shadow-md rounded-lg overflow-hidden">
@@ -119,7 +119,7 @@
                             SURVEY
                         </h3>
                     </div>
-                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('web') }}/assets/survey.png" alt="Image Description">
+                    <img class="w-auto item-center h-72 rounded-t-xl" src="{{ asset('env') }}/survey.png" alt="Image Description">
                 </a>   
         </div>
     </section>
