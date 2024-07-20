@@ -25,7 +25,7 @@ class DokumenController extends Controller
         $request->validate([
             'title' => 'required',
             'deskripsi' => 'required',
-            'file' => 'required|mimes:pdf,doc,docx|max:2048',
+            'file' => 'required|mimes:pdf,doc,docx|max:200048',
         ]);
 
         $fileName = time().'.'.$request->file->extension();  
@@ -59,7 +59,7 @@ class DokumenController extends Controller
         $request->validate([
             'title' => 'required',
             'deskripsi' => 'required',
-            'file' => 'mimes:pdf,doc,docx|max:2048',
+            'file' => 'mimes:pdf,doc,docx|max:200048',
         ]);
 
         $dokumen = Dokumen::find($id);
