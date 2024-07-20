@@ -26,7 +26,7 @@
 
   <!-- Main Content -->
   <div id="content" class="hidden">
-    <div class="container mx-auto max-w-6xl mb-32">
+    <div class="container mx-auto max-w-6xl mb-30">
       @yield('content')
     </div>
     @include('template-web.footer')

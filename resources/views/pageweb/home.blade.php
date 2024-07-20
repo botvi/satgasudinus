@@ -23,8 +23,13 @@
             <p class="text-gray-700 text-justify">
                 Mahasiswa berada di rentang usia 18-22 tahun, dimana mereka berada di tahap remaja akhir menuju perkembangan dewasa muda. Santrock (2011) menjelaskan bahwa pada masa ini, mahasiswa berusaha membentuk struktur kehidupannya sendiri dari berbagai sumber informasi dan pengalamannya. Pada masa remaja, seorang anak akan mengalami perkembangan psikologis,
             </p>
-            <div class="mt-12">
-                <a href="satgas/pengantar" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Baca Selengkapnya</a>
+            <div class>
+                <a href="satgas/pengantar">
+                    <button class="flex items-center mt-4 text-black text-sm uppercase font-medium rounded hover:text-yellow-500 focus:outline-none">
+                        <span>Baca Selengkapnya</span>
+                        <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                  </a>
             </div>
         </div>
     </section>
@@ -46,7 +51,12 @@
             </a>
             @endforeach
         </div>
-        <a href="satgas/kegiatan" class="text-gray-800 font-semibold hover:text-yellow-500 transition duration-300 mt-4 mr-4 float-right">Read More</a>
+        <a href="satgas/kegiatan">
+            <button class="flex items-center mt-4 text-black text-sm uppercase font-medium rounded hover:text-yellow-500 focus:outline-none">
+                <span>Baca Selengkapnya</span>
+                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </button>
+          </a>
     </section>
 
     <!-- Section 4: Lapor -->
@@ -61,7 +71,14 @@
                     Universitas Dian Nuswantoro berkomitmen untuk melakukan pencegahan dan penanganan segala bentuk kekerasan seksual yang terjadi di lingkungan kampus UDINUS. Laporkan segala bentuk tindak kekerasan seksual ke Tim Satgas PPKS UDINUS melalui link dibawah ini.
                 </p>
                 <div class="mt-24">
-                    <a href="/satgas/lapor" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Lapor Sekarang</a>
+                    <div class>
+                        <a href="satgas/lapor">
+                            <button class="flex items-center mt-4 text-black text-sm uppercase font-medium rounded hover:text-yellow-500 focus:outline-none">
+                                <span>Lapor Sekarang</span>
+                                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </button>
+                          </a>
+                    </div>
                 </div>
             </div>
             <div class="col-span-1 md:col-span-1">
@@ -121,7 +138,12 @@
                 Mahasiswa berada di rentang usia 18-22 tahun, dimana mereka berada di tahap remaja akhir menuju perkembangan dewasa muda. Santrock (2011) menjelaskan bahwa pada masa ini, mahasiswa berusaha membentuk struktur kehidupannya sendiri dari berbagai sumber informasi dan pengalamannya. Pada masa remaja, seorang anak akan mengalami perkembangan psikologis,
             </p>
             <div class="mt-16">
-                <a href="https://www.youtube.com/@MalakaProjectid" class="bg-gray-800 text-white p-2 rounded-md hover:bg-yellow-500 transition duration-300">Kanal Youtube</a>
+                <a href="https://www.youtube.com/@MalakaProjectid">
+                    <button class="flex items-center mt-4 text-black text-sm uppercase font-medium rounded hover:text-yellow-500 focus:outline-none">
+                        <span>Kanal Youtube</span>
+                        <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                  </a>
             </div>
         </div>
     </section>
