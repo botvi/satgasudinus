@@ -1,8 +1,8 @@
-<nav class="bg-gray-900 fixed h-24 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+<nav class="bg-blue-900 fixed h-32 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mt-4 mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="{{ asset('env') }}/logo.png" class="h-8" alt="Flowbite Logo">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Satgas PPKS</span>
+        <img src="{{ asset('env') }}/logo.png" class="h-14" alt="Flowbite Logo">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Satuan Tugas <br> PPKS UDINUS</span>
       </a>
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <a href="/satgas/lapor" class="text-white bg-red-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-yellow-500 dark:focus:ring-blue-800">Laporkan</a>
@@ -14,7 +14,7 @@
           </button>        
       </div>
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-900 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-900 dark:bg-gray-900 md:dark:bg-gray-900 dark:border-gray-700">
+        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-blue-900 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-blue-900 dark:bg-blue-900 md:dark:bg-blue-900 dark:border-gray-700">
           <li>
             <a href="/" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 md:hover:text-yellow-400" aria-current="page">Beranda</a>
           </li>
@@ -25,7 +25,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
                 </button>
-                <div id="dropdownNavbar" class="absolute hidden font-normal bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-44 dark:bg-gray-900 dark:divide-gray-600">
+                <div id="dropdownNavbar" class="absolute hidden font-normal bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-44 dark:bg-blue-900 dark:divide-gray-600">
                   <ul class="py-1 text-sm text-white" aria-labelledby="dropdownNavbarLink">
                     <li>
                       <a href="/satgas/pengantar" class="block px-4 py-2 md:hover:text-yellow-400 hover:bg-gray-700">Pengantar</a>

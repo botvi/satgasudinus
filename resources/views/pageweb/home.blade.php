@@ -2,10 +2,10 @@
 @section('content')
 <div class="mx-auto max-w-6xl my-5">
     <!-- Section 1: Welcome Banner -->
-    <section class="relative bg-cover bg-center h-96 mt-32" style="background-image: url('{{ asset('env') }}/cover.jpg');">
-        <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
+    <section class="relative bg-cover bg-center h-96 mt-40" style="background-image: url('{{ asset('env/cover.jpg') }}');">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h1 class="text-2xl md:text-4xl text-white font-bold">Selamat Datang di Satgas PPKS UDINUS</h1>
+            <h1 class="text-2xl md:text-4xl text-white font-bold">Selamat Datang di Laman Satgas PPKS UDINUS</h1>
             <p class="mt-2 md:mt-4 text-sm md:text-lg text-white">Portal Informasi Satgas PPKS Universitas Dian Nuswantoro</p>
         </div>
     </section>
@@ -124,7 +124,7 @@
         </div>
     </section>
 
-    <!-- Section 6: Video -->
+    <!-- Section 6: Video
     <section class="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="flex justify-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/Ev_ZeKkEEdY?si=2ypPZfGJ-Y4atwtP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -146,6 +146,6 @@
                   </a>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 @endsection

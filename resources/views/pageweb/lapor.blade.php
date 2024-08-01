@@ -20,7 +20,7 @@
           <input type="text" name="nomor_identitas" class="w-full p-2 border rounded-lg" placeholder="Masukkan Nomor Identitas">
         </div>
         <div>
-          <label class="block text-gray-700 mb-2">Upload file identitas (jpg, jpeg, png, pdf)</label>
+          <label class="block text-gray-700 mb-2">Upload file identitas (KTP atau KTM)</label>
           <input type="file" name="file_identitas" accept=".jpg,.jpeg,.png,.pdf" class="w-full p-2 border rounded-lg">
         </div>
       </div>
@@ -113,9 +113,13 @@
         <textarea name="kronologi_peristiwa" class="w-full p-2 border rounded-lg" rows="5" placeholder="Masukkan Kronologi Peristiwa"></textarea>
       </div>
       <div>
-        <label class="block text-gray-700 mb-2">Upload Bukti Tindakan (jpg, jpeg, png, pdf)</label>
+        <label class="block text-gray-700 mb-2">Upload Bukti Tindakan atau Lokasi Kejadian(jpg, jpeg, png, pdf)</label>
         <input type="file" name="file_bukti_tindakan" accept=".jpg,.jpeg,.png,.pdf" class="w-full p-2 border rounded-lg">
       </div>
+    </div>
+
+    <div>
+      <p class="text-gray-700 font-bold mb-2">*Segala informasi yang disampaikan diatas, dijamin kerahasiaannya</p>
     </div>
 
     <!-- Tombol Submit -->

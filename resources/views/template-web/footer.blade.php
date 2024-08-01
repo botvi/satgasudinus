@@ -1,4 +1,4 @@
-<footer class="bg-gray-900 text-white w-full">
+<footer class="bg-blue-900 text-white w-full">
   <section class="container mx-auto text-left p-4">
     <div class="grid md:grid-cols-3 py-5">
       <div class="px-4 py-8">
@@ -18,7 +18,7 @@
         </div>
         <div class="mt-3 flex items-center gap-3">
           <i class="fas fa-mobile-alt"></i>
-          <p>+91 123456789</p>
+          <p>+6288-8890-1090</p>
         </div>
       </div>
       <div class="col-span-2 grid grid-cols-2 sm:grid-cols-3 md:pl-10">
