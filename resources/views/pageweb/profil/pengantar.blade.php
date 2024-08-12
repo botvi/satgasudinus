@@ -5,9 +5,9 @@
     <h1 class="text-2xl font-bold mb-8 text-center">Pengantar</h1>
     
     <section
-        class="relative bg-cover bg-center h-96"
+        class="relative bg-cover bg-center h-96 rounded-lg"
         style="background-image: url('{{ asset('env') }}/cover2.jpg'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
+        <div class="absolute inset-0 bg-gray-900 opacity-60 rounded-md"></div>
     </section>
 
     <section class="p-10">

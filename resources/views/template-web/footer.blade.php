@@ -18,7 +18,7 @@
         </div>
         <div class="mt-3 flex items-center gap-3">
           <i class="fas fa-mobile-alt"></i>
-          <p>+6288-8890-1090</p>
+          <p>+62 888-890-1090</p>
         </div>
       </div>
       <div class="col-span-2 grid grid-cols-2 sm:grid-cols-3 md:pl-10">
@@ -62,13 +62,10 @@
             Media Sosial
           </h1>
             <div class="mt-6 flex text-center gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="duration-200 md:hover:text-yellow-400 hover:scale-105">
+              <a href="https://www.instagram.com/satgasppks.udinus?igsh=cHYxdm1oamd5MGV1" target="_blank" rel="noopener noreferrer" class="duration-200 md:hover:text-yellow-400 hover:scale-105">
                 <i class="fab fa-instagram text-3xl"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="duration-200 md:hover:text-yellow-400 hover:scale-105">
-                <i class="fab fa-facebook text-3xl"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="duration-200 md:hover:text-yellow-400 hover:scale-105">
+              <a href="https://wa.me/+628888901090" target="_blank" rel="noopener noreferrer" class="duration-200 md:hover:text-yellow-400 hover:scale-105">
                 <i class="fab fa-whatsapp text-3xl"></i>
               </a>
             </div>
