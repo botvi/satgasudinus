@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function calm() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-calm'); }
   var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
 
   /* ---------- Header & navigasi ---------- */
@@ -54,10 +54,11 @@
   }
 
   /* ---------- Kartu Akses: tilt 3D mengikuti kursor ---------- */
-  if (!reduce) {
+  {
     document.querySelectorAll('[data-tilt]').forEach(function (card) {
       var st = card.querySelector('.stack');
       card.addEventListener('pointermove', function (e) {
+        if (calm()) return;
         var r = card.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width - 0.5;
         var y = (e.clientY - r.top) / r.height - 0.5;
@@ -177,7 +178,7 @@
     }
 
     s.update = function (t, dt, st) {
-      var intro = reduce ? 1 : Math.min(1, t / 1.7);
+      var intro = calm() ? 1 : Math.min(1, t / 1.7);
       var e = 1 - Math.pow(1 - intro, 3);
       var prog = clamp(window.scrollY / (heroEl.offsetHeight || 1), 0, 1);
       root.scale.setScalar(1.25 * (.4 + .6 * e) * (1 - prog * .12));
@@ -271,7 +272,7 @@
       if (!w || !h) return;
       renderer.setSize(w, h, false);
       camera.aspect = w / h; camera.updateProjectionMatrix();
-      if (reduce) { s.update(3, 0, s); renderer.render(scene, camera); }
+      if (calm()) { s.update(3, 0, s); renderer.render(scene, camera); }
     }
     if ('ResizeObserver' in window) new ResizeObserver(resize).observe(host);
     window.addEventListener('resize', resize);
@@ -280,7 +281,7 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) { s.visible = es[0].isIntersecting; }).observe(host);
     }
-    if (!reduce) stages.push(s);
+    stages.push(s);
     return s;
   }
 
@@ -297,6 +298,12 @@
       for (var i = 0; i < stages.length; i++) {
         var s = stages[i];
         if (!s.visible) continue;
+        if (calm()) {
+          // diam: render sekali pada pose statis, lanjut animasi otomatis saat dimatikan
+          if (!s.frozen) { s.frozen = true; s.px = s.py = 0; s.t = 3; s.update(3, 0, s); s.renderer.render(s.scene, s.camera); }
+          continue;
+        }
+        if (s.frozen) { s.frozen = false; s.t = 0; }
         var r = s.host.getBoundingClientRect();
         var nx = clamp((pointer.x - (r.left + r.width / 2)) / (window.innerWidth * .5), -1, 1);
         var ny = clamp((pointer.y - (r.top + r.height / 2)) / (window.innerHeight * .5), -1, 1);

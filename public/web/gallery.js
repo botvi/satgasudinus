@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-calm'); };
   var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
   var $ = function (q, r) { return (r || document).querySelector(q); };
   var rootEl = $('.gal');
@@ -17,7 +17,7 @@
       }
       function go(i) {
         i = Math.max(0, Math.min(slides.length - 1, i));
-        track.scrollTo({ left: slides[i].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+        track.scrollTo({ left: slides[i].offsetLeft, behavior: reduce() ? 'auto' : 'smooth' });
       }
       function paint() {
         raf = 0;

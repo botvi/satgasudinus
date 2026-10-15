@@ -49,7 +49,7 @@
 <script>
 (function () {
   'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-calm'); };
   var $ = function (q, r) { return (r || document).querySelector(q); };
   var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
   var fil = $('[data-view="filosofi"]');
@@ -66,8 +66,9 @@
     b.addEventListener('click', function () { openPart(b.closest('.part').getAttribute('data-part')); });
   });
   var lstage = $('[data-logo-stage]'), lcard = $('.logo-card', lstage);
-  if (!reduce) {
+  {
     lstage.addEventListener('pointermove', function (e) {
+      if (reduce()) return;
       var r = lstage.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
       lcard.style.transform = 'rotateX(' + (-y * 14).toFixed(2) + 'deg) rotateY(' + (x * 18).toFixed(2) + 'deg)';

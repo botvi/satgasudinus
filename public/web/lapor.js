@@ -4,7 +4,7 @@
   var DEMO = false;
   var MAX_MB = 2;
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-calm'); };
   var $ = function (q, r) { return (r || document).querySelector(q); };
   var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
   var ABORT = { abort: true };
@@ -71,7 +71,7 @@
   function el(html) { var t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; }
 
   /* ---------- Log pesan ---------- */
-  function scrollDown() { log.scrollTo({ top: log.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }); }
+  function scrollDown() { log.scrollTo({ top: log.scrollHeight, behavior: reduce() ? 'auto' : 'smooth' }); }
   function addMsg(who, content, wide) {
     var m = document.createElement('div');
     m.className = 'msg msg--' + who + (lastWho === who ? ' msg--cont' : '');
@@ -89,7 +89,7 @@
     t.innerHTML = '<span class="msg__av logo-img" aria-hidden="true"></span><div class="bubble typing"><i></i><i></i><i></i></div>';
     log.appendChild(t); scrollDown();
     var len = typeof content === 'string' ? content.length : 80;
-    await sleep(reduce ? 0 : Math.min(1300, 350 + len * 9));
+    await sleep(reduce() ? 0 : Math.min(1300, 350 + len * 9));
     t.remove();
     if (id !== runId) throw ABORT;
     return addMsg('bot', content, wide);
