@@ -24,7 +24,7 @@
                         @foreach ($kegiatans as $kegiatan)
                             <tr>
                                <td>{{ $kegiatan->title }}</td>
-                               <td>{{ $kegiatan->deskripsi }}</td>
+                               <td>{{ $kegiatan->ringkasan }}</td>
                                <td>
                                    <img src="{{ asset('kegiatan/' . $kegiatan->gambar) }}" alt="Gambar" width="100">
                                </td>

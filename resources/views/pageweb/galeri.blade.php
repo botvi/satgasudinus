@@ -1,19 +1,23 @@
 @extends('template-web.layout')
-
+@section('title', 'Galeri — Satgas PPK UDINUS')
 @section('content')
-<div class="mx-auto mt-24 max-w-6xl p-10 my-5">
-  <h1 class="text-2xl font-bold mb-8 text-center">Galeri</h1>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    @if($galeris->isEmpty())
-      <div class="col-span-1 md:col-span-4 text-center">
-        <p class="text-gray-700">Tidak ada gambar yang tersedia saat ini.</p>
-      </div>
+<header class="phead">
+  <div class="wrap phead__in">
+    <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="/">Beranda</a></li><li aria-current="page">Galeri</li></ol></nav>
+    <h1>Galeri</h1>
+    <p>Foto dan dokumentasi kegiatan Satgas PPK UDINUS.</p>
+  </div>
+</header>
+<div class="page-body">
+  <div class="wrap">
+    @if ($galeris->isEmpty())
+    <p class="empty">Tidak ada gambar yang tersedia saat ini.</p>
     @else
-      @foreach($galeris as $galeri)
-        <div class="relative overflow-hidden rounded-md shadow-md">
-          <img src="{{ asset('galeri/' . $galeri->gambar) }}" alt="Foto {{ $loop->iteration }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-        </div>
+    <div class="ggrid">
+      @foreach ($galeris as $galeri)
+      <article class="gcard"><div class="ph" style="aspect-ratio:4/3"><img src="{{ asset('galeri/' . $galeri->gambar) }}" alt="Foto {{ $loop->iteration }}" loading="lazy"></div></article>
       @endforeach
+    </div>
     @endif
   </div>
 </div>

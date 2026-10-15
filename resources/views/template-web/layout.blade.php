@@ -1,41 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{ asset('env') }}/udinus.png" />
-  <title>Satgas PPKS</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('web') }}/styles.css">
-  @yield('style')
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>@yield('title', 'Satgas PPK UDINUS — Portal Informasi')</title>
+<meta name="description" content="Portal Informasi Satgas PPK Universitas Dian Nuswantoro">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/x-icon" href="{{ asset('env') }}/udinus.png">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('web/site.css') }}?v={{ filemtime(public_path('web/site.css')) }}">
 </head>
-<body class="relative">
+<body>
+@include('template-web.navbar')
 
-  <!-- Loading Spinner -->
-  <div id="loading" class="fixed inset-0 flex items-center justify-center z-50">
-    <div class="loading-dots">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+<main id="konten">
+@yield('content')
+</main>
 
-  @include('template-web.navbar')
+@include('template-web.footer')
 
-  <!-- Main Content -->
-  <div id="content" class="hidden">
-    <div class="container mx-auto max-w-6xl mb-30">
-      @yield('content')
-    </div>
-    @include('template-web.footer')
-  </div>
-
-  @include('sweetalert::alert')
-
-  @yield('script')
-
-  <script src="{{ asset('web') }}/script.js"></script>
+@yield('script')
+<script src="{{ asset('web/site.js') }}?v={{ filemtime(public_path('web/site.js')) }}"></script>
+@include('sweetalert::alert')
 </body>
 </html>

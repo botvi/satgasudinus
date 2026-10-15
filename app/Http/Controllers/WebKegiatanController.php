@@ -10,7 +10,15 @@ class WebKegiatanController extends Controller
     
     public function kegiatan()
     {
-        $kegiatans = Kegiatan::all();
+        $kegiatans = Kegiatan::latest()->get();
         return view('pageweb.kegiatan', compact('kegiatans'));
+    }
+
+    public function show($id)
+    {
+        $kegiatan = Kegiatan::findOrFail($id);
+        $lain = Kegiatan::where('id', '!=', $id)->latest()->take(3)->get();
+
+        return view('pageweb.kegiatan-detail', compact('kegiatan', 'lain'));
     }
 }

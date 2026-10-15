@@ -1,24 +1,32 @@
 @extends('template-web.layout')
-
+@section('title', 'Kegiatan — Satgas PPK UDINUS')
 @section('content')
-<div class="mx-auto mt-24 max-w-6xl p-10 my-5">
-  <h1 class="text-2xl font-bold mb-8 text-center">Kegiatan</h1>
-  <div id="kegiatan-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    @if($kegiatans->isEmpty())
-      <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center">
-        <p class="text-gray-700">Tidak ada kegiatan yang tersedia saat ini.</p>
-      </div>
-    @else
-      @foreach($kegiatans as $kegiatan)
-        <div class="bg-white shadow-md rounded-md overflow-hidden">
-          <img src="{{ asset('kegiatan/' . $kegiatan->gambar) }}" alt="{{ $kegiatan->title }}" class="w-full h-48 object-cover" />
-          <div class="p-4">
-            <h2 class="text-xl font-bold mb-2">{{ $kegiatan->title }}</h2>
-            <p class="text-gray-700 text-justify">{{ $kegiatan->deskripsi }}</p>
+<div data-view="kegiatan">
+  <header class="phead">
+    <div class="wrap phead__in">
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="/">Beranda</a></li><li aria-current="page">Kegiatan</li></ol></nav>
+      <h1>Kegiatan</h1>
+      <p>Seminar, sosialisasi, dan edukasi Satgas PPK UDINUS.</p>
+    </div>
+  </header>
+  <div class="page-body">
+    <div class="wrap">
+      @if ($kegiatans->isEmpty())
+      <p class="empty">Belum ada kegiatan yang tersedia saat ini.</p>
+      @else
+      <div class="ggrid">
+        @foreach ($kegiatans as $kegiatan)
+        <article class="gcard">
+          <div class="ph"><img src="{{ asset('kegiatan/' . $kegiatan->gambar) }}" alt="{{ $kegiatan->title }}" loading="lazy"></div>
+          <div class="gcard__body">
+            <h3><a href="{{ $kegiatan->url }}">{{ $kegiatan->title }}</a></h3>
+            <p>{{ $kegiatan->ringkasan }}</p>
           </div>
-        </div>
-      @endforeach
-    @endif
+        </article>
+        @endforeach
+      </div>
+      @endif
+    </div>
   </div>
 </div>
 @endsection

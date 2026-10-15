@@ -32,17 +32,20 @@ class WebLaporController extends Controller
             'tanggal_peristiwa' => 'required|date',
             'lokasi_peristiwa' => 'required',
             'kronologi_peristiwa' => 'required',
-            'file_bukti_tindakan' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'file_bukti_tindakan' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
         
         // Jika validasi berhasil, lanjutkan proses penyimpanan data
         $fileIdentitasName = time() . '_identitas.' . $request->file_identitas->extension();
         $request->file_identitas->move(public_path('identitas'), $fileIdentitasName);
         
-        $fileBuktiName = time() . '_bukti.' . $request->file_bukti_tindakan->extension();
-        $request->file_bukti_tindakan->move(public_path('buktitindakan'), $fileBuktiName);
+        $fileBuktiName = null;
+        if ($request->hasFile('file_bukti_tindakan')) {
+            $fileBuktiName = time() . '_bukti.' . $request->file_bukti_tindakan->extension();
+            $request->file_bukti_tindakan->move(public_path('buktitindakan'), $fileBuktiName);
+        }
         
-        Lapor::create([
+        $lapor = Lapor::create([
             'nama_lengkap' => $request->nama_lengkap,
             'nomor_identitas' => $request->nomor_identitas,
             'file_identitas' => $fileIdentitasName,
@@ -62,6 +65,10 @@ class WebLaporController extends Controller
             'file_bukti_tindakan' => $fileBuktiName,
         ]);
         
+        if ($request->expectsJson()) {
+            return response()->json(['ref' => 'LAP-' . $lapor->created_at->format('Ymd') . '-' . str_pad($lapor->id, 4, '0', STR_PAD_LEFT)]);
+        }
+
         Alert::success('Success', 'Laporan berhasil dibuat.');
         
         return redirect()->route('web.lapor');

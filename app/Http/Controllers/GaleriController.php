@@ -22,11 +22,10 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ]);
 
-        $imageName = time().'.'.$request->gambar->extension();  
-        $request->gambar->move(public_path('galeri'), $imageName);
+        $imageName = \App\Services\MediaOptimizer::image($request->gambar, 'galeri');
 
         Galeri::create([
             'gambar' => $imageName,
@@ -52,15 +51,14 @@ class GaleriController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ]);
 
         $galeri = Galeri::find($id);
 
         if ($request->hasFile('gambar')) {
-            $imageName = time().'.'.$request->gambar->extension();  
-            $request->gambar->move(public_path('galeri'), $imageName);
-            $galeri->gambar = $imageName;
+            \App\Services\MediaOptimizer::delete('galeri', $galeri->gambar);
+            $galeri->gambar = \App\Services\MediaOptimizer::image($request->gambar, 'galeri');
         }
 
         $galeri->save();

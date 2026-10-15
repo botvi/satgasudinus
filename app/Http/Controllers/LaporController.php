@@ -176,7 +176,7 @@ class LaporController extends Controller
         }
 
         $fileBuktiPath = public_path('buktitindakan') . '/' . $lapor->file_bukti_tindakan;
-        if (file_exists($fileBuktiPath)) {
+        if ($lapor->file_bukti_tindakan && file_exists($fileBuktiPath)) {
             unlink($fileBuktiPath);
         }
 

@@ -41,7 +41,12 @@
                 <div data-i18n="Analytics">Dokumen</div>
             </a>
         </li>
-      
+        <li class="menu-item {{ Request::is('pengaturan') ? 'active' : '' }}">
+            <a href="/pengaturan" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Analytics">Pengaturan Situs</div>
+            </a>
+        </li>
     </ul>
     
 </aside>

@@ -1,83 +1,83 @@
-<!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="{{ asset('admin') }}/assets/" data-template="vertical-menu-template-free">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Login Admin - Satgas Udinus</title>
-    <meta name="description" content="" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('env') }}/udinus.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/fonts/boxicons.css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/demo.css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/pages/page-auth.css" />
-    <script src="{{ asset('admin') }}/assets/vendor/js/helpers.js"></script>
-    <script src="{{ asset('admin') }}/assets/js/config.js"></script>
-  </head>
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masuk Admin — Satgas PPK UDINUS</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="{{ asset('env') }}/udinus.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('web/site.css') }}?v={{ filemtime(public_path('web/site.css')) }}">
+<style>
+body{min-height:100vh;display:grid;place-items:center;padding:24px var(--gutter);background:linear-gradient(160deg,var(--brand-deep),var(--brand) 55%,var(--brand-bright))}
+.auth{width:min(440px,100%)}
+.auth__brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px;color:#fff;text-decoration:none;font:700 1.25rem/1.15 var(--font-display)}
+.auth__brand .logo-img{width:52px;height:52px;flex:none}
+.auth__card{background:var(--surface);border-radius:20px;padding:clamp(24px,5vw,36px);box-shadow:0 30px 60px -20px rgba(5,12,40,.5)}
+.auth__card h1{margin:0 0 6px;font:700 1.6rem/1.2 var(--font-display);letter-spacing:-.01em}
+.auth__card>p{margin:0 0 24px;color:var(--muted);font-size:.98rem;line-height:1.5}
+.field{display:block;margin-bottom:18px}
+.field>span{display:block;margin-bottom:6px;font-weight:600;font-size:.92rem}
+.field input[type=text],.field input[type=password]{width:100%;min-height:48px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;transition:border-color .2s}
+.field input:hover{border-color:var(--brand-bright)}
+.pw{position:relative}
+.pw input{padding-right:48px!important}
+.pw button{position:absolute;right:4px;top:4px;width:40px;height:40px;border:0;border-radius:8px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.pw button:hover{background:var(--sky)}
+.pw svg{width:20px;height:20px}
+.remember{display:flex;align-items:center;gap:10px;margin:0 0 22px;font-size:.95rem;cursor:pointer}
+.remember input{width:18px;height:18px;accent-color:var(--brand)}
+.auth .btn{width:100%;justify-content:center}
+.auth__back{display:block;margin-top:20px;text-align:center;color:#fff;font-weight:600;text-decoration:none;opacity:.9}
+.auth__back:hover{opacity:1;text-decoration:underline}
+</style>
+</head>
+<body>
+<main class="auth">
+  <a class="auth__brand" href="/" aria-label="Ke beranda Satgas PPK UDINUS">
+    <span class="logo-img" role="img" aria-label="Logo Satgas PPKS UDINUS"></span>
+    <span>Satuan Tugas<br>PPK UDINUS</span>
+  </a>
 
-  <body class="bg-dark">
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <div class="card">
-            <div class="card-body">
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <img src="{{ asset('env') }}/udinus.png" width="35px" srcset="">
+  <div class="auth__card">
+    <h1>Masuk Admin</h1>
+    <p>Masuk untuk mengelola kegiatan, dokumen, galeri, dan laporan.</p>
 
-                  </span>
-                  <span class="app-brand-text demo text-body fw-bolder">SATGAS UDINUS</span>
-                </a>
-              </div>
-              <h4 class="mb-2">Welcome admin ! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
-              <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                </div>
-              </form>
-            </div>
-          </div>
+    <form action="{{ route('login') }}" method="POST">
+      @csrf
+      <label class="field">
+        <span>Username</span>
+        <input type="text" name="username" autocomplete="username" placeholder="Masukkan username" autofocus required>
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <div class="pw">
+          <input type="password" name="password" id="password" autocomplete="current-password" placeholder="Masukkan password" required>
+          <button type="button" id="pw-toggle" aria-label="Tampilkan password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
         </div>
-      </div>
-    </div>
-    <div class="buy-now">
-      <a href="/" class="btn btn-danger btn-buy-now">BACK TO SITE</a>
-    </div>
-    @include('sweetalert::alert')
+      </label>
+      <label class="remember"><input type="checkbox" name="remember" value="1"> Ingat saya</label>
+      <button class="btn btn--solid btn--lg" type="submit">Masuk</button>
+    </form>
+  </div>
 
-    <script src="{{ asset('admin') }}/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="{{ asset('admin') }}/assets/vendor/libs/popper/popper.js"></script>
-    <script src="{{ asset('admin') }}/assets/vendor/js/bootstrap.js"></script>
-    <script src="{{ asset('admin') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="{{ asset('admin') }}/assets/vendor/js/menu.js"></script>
-    <script src="{{ asset('admin') }}/assets/js/main.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+  <a class="auth__back" href="/">← Kembali ke situs</a>
+</main>
+@include('sweetalert::alert')
+<script>
+(function () {
+  var i = document.getElementById('password'), b = document.getElementById('pw-toggle');
+  b.addEventListener('click', function () {
+    var show = i.type === 'password';
+    i.type = show ? 'text' : 'password';
+    b.setAttribute('aria-pressed', String(show));
+    b.setAttribute('aria-label', show ? 'Sembunyikan password' : 'Tampilkan password');
+  });
+})();
+</script>
+</body>
 </html>

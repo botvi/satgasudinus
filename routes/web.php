@@ -15,7 +15,8 @@ use App\Http\Controllers\{
     WebProfilController,
     LoginController,
     WebLainnyaController,
-    AdminPasswordController
+    AdminPasswordController,
+    SettingController
 };
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,9 @@ Route::get('kegiatans/{id}', [KegiatanController::class, 'show'])->name('kegiata
 Route::get('kegiatans/{id}/edit', [KegiatanController::class, 'edit'])->name('kegiatans.edit');
 Route::put('kegiatans/{id}', [KegiatanController::class, 'update'])->name('kegiatans.update');
 Route::delete('kegiatans/{id}', [KegiatanController::class, 'destroy'])->name('kegiatans.destroy');
+
+Route::get('/pengaturan', [SettingController::class, 'edit'])->name('settings.edit');
+Route::put('/pengaturan', [SettingController::class, 'update'])->name('settings.update');
 
 Route::get('/dokumens', [DokumenController::class, 'index'])->name('dokumens.index');
 Route::get('/dokumens/create', [DokumenController::class, 'create'])->name('dokumens.create');
@@ -89,6 +93,7 @@ Route::post('/change-pin', [AdminPasswordController::class, 'changePin'])->name(
 // WEB
 Route::get('/', [HomeController::class, 'home'])->name('web.home');
 Route::get('/satgas/kegiatan', [WebKegiatanController::class, 'kegiatan'])->name('web.kegiatan');
+Route::get('/satgas/kegiatan/{id}/{slug?}', [WebKegiatanController::class, 'show'])->whereNumber('id')->name('web.kegiatan.show');
 Route::get('/satgas/galeri', [WebGaleriController::class, 'galeri'])->name('web.galeri');
 
 Route::get('/satgas/lapor', [WebLaporController::class, 'lapor'])->name('web.lapor');
@@ -99,5 +104,6 @@ Route::get('/satgas/dokumen', [WebDokumenController::class, 'dokumen'])->name('w
 Route::get('/satgas/pengantar', [WebProfilController::class, 'pengantar'])->name('web.pengantar');
 Route::get('/satgas/filosofi', [WebProfilController::class, 'filosofi'])->name('web.filosofi');
 Route::get('/satgas/lainnya', [WebLainnyaController::class, 'lainnya'])->name('web.lainnya');
+Route::view('/satgas/faq', 'pageweb.faq')->name('web.faq');
 
 // WEB

@@ -1,158 +1,58 @@
 @extends('template-web.layout')
-
+@section('title', 'Lapor — Satgas PPK UDINUS')
 @section('content')
-<div class="flex justify-center mt-20 p-4 md:p-10 my-5">
-  <form action="{{ route('web.store') }}" method="POST" enctype="multipart/form-data" class="w-full max-w-4xl bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
-    @csrf
-    <!-- Judul Halaman -->
-    <h1 class="text-2xl font-bold mb-8 text-center">Form Laporan</h1>
-
-    <!-- Identitas -->
-    <div class="mb-8 border rounded-lg p-4 space-y-4 md:flex md:flex-row md:space-y-0 md:space-x-4 md:justify-between">
-      <div class="w-full md:w-1/2">
-        <h2 class="text-xl font-bold mb-4">Identitas</h2>
-        <div>
-          <label class="block text-gray-700 mb-2">Nama Lengkap</label>
-          <input type="text" name="nama_lengkap" class="w-full p-2 border rounded-lg" placeholder="Masukkan Nama Lengkap">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Nomor Identitas</label>
-          <input type="text" name="nomor_identitas" class="w-full p-2 border rounded-lg" placeholder="Masukkan Nomor Identitas">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Upload file identitas (KTP atau KTM)</label>
-          <input type="file" name="file_identitas" accept=".jpg,.jpeg,.png,.pdf" class="w-full p-2 border rounded-lg">
-        </div>
-      </div>
-      <div class="w-full md:w-1/2">
-        <div>
-          <label class="block text-gray-700 mb-2">Alamat</label>
-          <input type="text" name="alamat" class="w-full p-2 border rounded-lg" placeholder="Masukkan Alamat">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">No HP</label>
-          <input type="text" name="no_hp" class="w-full p-2 border rounded-lg" placeholder="Masukkan No HP">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Email</label>
-          <input type="email" name="email" class="w-full p-2 border rounded-lg" placeholder="Masukkan Email">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Nama Unit Kerja/Fakultas/Instansi</label>
-          <input type="text" name="nama_unit_kerja_fakultas_instansi" class="w-full p-2 border rounded-lg" placeholder="Masukkan Nama Unit Kerja/Fakultas/Instansi">
-        </div>
-      </div>
+<div data-view="lapor">
+  <header class="phead">
+    <div class="wrap phead__in">
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="/">Beranda</a></li><li aria-current="page">Lapor</li></ol></nav>
+      <h1>Lapor</h1>
+      <p>Sampaikan laporan lewat percakapan terpandu. Anda cukup menjawab satu pertanyaan dalam satu waktu.</p>
     </div>
+  </header>
+  <div class="page-body">
+    <div class="wrap lapor-page">
+      <nav class="lp-steps" aria-label="Bagian laporan"><ol id="lp-steps"></ol></nav>
 
-    <!-- Pelapor dan Terlapor -->
-    <div class="mb-8 border rounded-lg p-4 space-y-4 md:flex md:flex-row md:space-y-0 md:space-x-4 md:justify-between">
-      <!-- Pelapor -->
-      <div class="w-full md:w-1/2">
-        <h2 class="text-xl font-bold mb-4">Pelapor</h2>
-        <div>
-          <label class="block text-gray-700 mb-2">Status Pelapor</label>
-          <select name="status_pelapor" class="w-full p-2 border rounded-lg">
-            <option value="" disabled selected>Pilih Status Pelapor</option>
-            <option>Mahasiswa</option>
-            <option>Dosen</option>
-            <option>Tenaga Kependidikan</option>
-            <option>Masyarakat Umum</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Kategori</label>
-          <select name="kategori" class="w-full p-2 border rounded-lg">
-            <option value="" disabled selected>Pilih Kategori</option>
-            <option>Korban</option>
-            <option>Pelapor/Saksi</option>
-          </select>
-        </div>
-      </div>
+      <section class="chat" id="chat-form" action="{{ route('web.store') }}" data-csrf="{{ csrf_token() }}" aria-label="Percakapan pelaporan">
+        <header class="chat__head">
+          <span class="logo-img chat__av" role="img" aria-label="Logo Satgas PPKS UDINUS"></span>
+          <div>
+            <h2>Asisten pelaporan</h2>
+            <p id="chat-prog">0 dari 17 pertanyaan dijawab</p>
+          </div>
+          <button class="chat__reset" type="button" id="chat-reset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Mulai ulang</span>
+          </button>
+        </header>
+        <div class="chat__bar" id="chat-bar" role="progressbar" aria-label="Kemajuan pengisian laporan" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+        <div class="chat__log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="dock" id="chat-dock"></div>
+      </section>
 
-      <!-- Terlapor -->
-      <div class="w-full md:w-1/2">
-        <h2 class="text-xl font-bold mb-4">Terlapor</h2>
-        <div>
-          <label class="block text-gray-700 mb-2">Nama Lengkap Terlapor</label>
-          <input type="text" name="nama_lengkap_terlapor" class="w-full p-2 border rounded-lg" placeholder="Masukkan Nama Lengkap Terlapor">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">Status Terlapor</label>
-          <select name="status_terlapor" class="w-full p-2 border rounded-lg">
-            <option value="" disabled selected>Pilih Status Terlapor</option>
-            <option>Mahasiswa</option>
-            <option>Dosen</option>
-            <option>Tenaga Kependidikan</option>
-            <option>Masyarakat Umum</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2">No HP Terlapor</label>
-          <input type="text" name="no_hp_terlapor" class="w-full p-2 border rounded-lg" placeholder="Masukkan No HP Terlapor">
-        </div>
-      </div>
+      <aside class="lp-info" aria-label="Informasi pelaporan">
+        <section class="lp-card lp-card--calm">
+          <h2>Kerahasiaan</h2>
+          <p>Segala informasi yang disampaikan dijamin kerahasiaannya.</p>
+        </section>
+        <section class="lp-card">
+          <h2>Siapkan sebelum mulai</h2>
+          <ul>
+            <li>Foto atau pindaian KTP atau KTM</li>
+            <li>Data terlapor, jika Anda tahu</li>
+            <li>Tanggal, lokasi, dan kronologi</li>
+            <li>Bukti dalam jpg, jpeg, png, atau pdf</li>
+          </ul>
+        </section>
+        <section class="lp-card">
+          <h2>Butuh bantuan langsung?</h2>
+          <p>Hubungi Satgas PPK di <a href="tel:+628888901090">+62 888-890-1090</a>. Jika Anda dalam bahaya sekarang, hubungi <a href="tel:112">112</a>.</p>
+        </section>
+      </aside>
     </div>
-
-    <!-- Peristiwa -->
-    <div class="mb-8 border rounded-lg p-4 space-y-4">
-      <h2 class="text-xl font-bold mb-4">Peristiwa</h2>
-      <div>
-        <label class="block text-gray-700 mb-2">Jenis Peristiwa</label>
-        <input type="text" name="peristiwa" class="w-full p-2 border rounded-lg" placeholder="Masukkan Jenis Peristiwa">
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2">Tanggal Peristiwa</label>
-        <input type="date" name="tanggal_peristiwa" class="w-full p-2 border rounded-lg">
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2">Lokasi Peristiwa</label>
-        <input type="text" name="lokasi_peristiwa" class="w-full p-2 border rounded-lg" placeholder="Masukkan Lokasi Peristiwa">
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2">Kronologi Peristiwa</label>
-        <textarea name="kronologi_peristiwa" class="w-full p-2 border rounded-lg" rows="5" placeholder="Masukkan Kronologi Peristiwa"></textarea>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2">Upload Bukti Tindakan atau Lokasi Kejadian(jpg, jpeg, png, pdf)</label>
-        <input type="file" name="file_bukti_tindakan" accept=".jpg,.jpeg,.png,.pdf" class="w-full p-2 border rounded-lg">
-      </div>
-    </div>
-
-    <div>
-      <p class="text-gray-700 font-bold mb-2">*Segala informasi yang disampaikan diatas, dijamin kerahasiaannya</p>
-    </div>
-
-    <!-- Tombol Submit -->
-    <div class="flex justify-end">
-      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-    </div>
-  </form>
+  </div>
 </div>
 @endsection
 @section('script')
-<!-- Include SweetAlert2 CSS and JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  document.querySelector('form').addEventListener('submit', function(event) {
-  let isValid = true;
-  const inputs = document.querySelectorAll('input, textarea, select');
-  inputs.forEach(input => {
-    if (input.value.trim() === '' && !input.disabled) {
-      isValid = false;
-      input.classList.add('border-red-500');
-    } else {
-      input.classList.remove('border-red-500');
-    }
-  });
-  if (!isValid) {
-    event.preventDefault();
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Tidak boleh ada form yang kosong'
-    });
-  }
-});
-</script>
+<script src="{{ asset('web/lapor.js') }}"></script>
 @endsection
