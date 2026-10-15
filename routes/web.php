@@ -91,6 +91,7 @@ Route::post('/change-pin', [AdminPasswordController::class, 'changePin'])->name(
 
 
 // WEB
+Route::middleware('track.visit')->group(function () {
 Route::get('/', [HomeController::class, 'home'])->name('web.home');
 Route::get('/satgas/kegiatan', [WebKegiatanController::class, 'kegiatan'])->name('web.kegiatan');
 Route::get('/satgas/kegiatan/{id}/{slug?}', [WebKegiatanController::class, 'show'])->whereNumber('id')->name('web.kegiatan.show');
@@ -105,5 +106,6 @@ Route::get('/satgas/pengantar', [WebProfilController::class, 'pengantar'])->name
 Route::get('/satgas/filosofi', [WebProfilController::class, 'filosofi'])->name('web.filosofi');
 Route::get('/satgas/lainnya', [WebLainnyaController::class, 'lainnya'])->name('web.lainnya');
 Route::view('/satgas/faq', 'pageweb.faq')->name('web.faq');
+});
 
 // WEB
