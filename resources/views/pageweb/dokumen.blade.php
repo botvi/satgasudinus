@@ -24,7 +24,7 @@
               <path d="M62 4v24h24" fill="#D7E3FF" stroke="#1E3A8A" stroke-width="3.5" stroke-linejoin="round"/>
               <path d="M20 46h40M20 58h52M20 70h30" stroke="#C3CEEC" stroke-width="3.5" stroke-linecap="round"/>
               <rect x="0" y="84" width="66" height="26" rx="4" fill="#DC2626"/>
-              <text x="33" y="102" text-anchor="middle" font-family="Bricolage Grotesque, Hanken Grotesk, sans-serif" font-weight="800" font-size="16" fill="#fff">PDF</text>
+              <text x="33" y="102" text-anchor="middle" font-family="Plus Jakarta Sans, Hanken Grotesk, sans-serif" font-weight="800" font-size="16" fill="#fff">PDF</text>
             </svg></div>
           <div>
             <h2>{{ $dokumen->title }}</h2>

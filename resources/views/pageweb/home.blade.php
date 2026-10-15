@@ -129,8 +129,8 @@
               </g>
             </svg>
             <svg viewBox="0 0 240 200" style="--z:50px">
-              <text x="120" y="172" text-anchor="middle" font-family="Bricolage Grotesque, Hanken Grotesk, sans-serif" font-weight="700" font-size="20" fill="#1E6FB0">Cerdas</text>
-              <text x="120" y="194" text-anchor="middle" font-family="Bricolage Grotesque, Hanken Grotesk, sans-serif" font-weight="700" font-size="20" fill="#1E6FB0">Berkarakter</text>
+              <text x="120" y="172" text-anchor="middle" font-family="Plus Jakarta Sans, Hanken Grotesk, sans-serif" font-weight="700" font-size="20" fill="#1E6FB0">Cerdas</text>
+              <text x="120" y="194" text-anchor="middle" font-family="Plus Jakarta Sans, Hanken Grotesk, sans-serif" font-weight="700" font-size="20" fill="#1E6FB0">Berkarakter</text>
             </svg>
           </div>
         </div>
@@ -148,7 +148,7 @@
             </svg>
             <svg viewBox="0 0 240 200" style="--z:30px">
               <rect x="68" y="28" width="104" height="104" rx="8" fill="#fff" stroke="#1E3A8A" stroke-width="3"/>
-              <text x="120" y="54" text-anchor="middle" font-family="Bricolage Grotesque, Hanken Grotesk, sans-serif" font-weight="800" font-size="16" fill="#0E1631">Survey</text>
+              <text x="120" y="54" text-anchor="middle" font-family="Plus Jakarta Sans, Hanken Grotesk, sans-serif" font-weight="800" font-size="16" fill="#0E1631">Survey</text>
               <g stroke="#1E3A8A" stroke-width="2.5" fill="#fff"><rect x="82" y="68" width="12" height="12" rx="2"/><rect x="82" y="88" width="12" height="12" rx="2"/><rect x="82" y="108" width="12" height="12" rx="2"/></g>
               <path d="M85 74l3 3 5-6M85 94l3 3 5-6" stroke="#E07B2E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M102 74h54M102 94h54M102 114h36" stroke="#C9CFE2" stroke-width="3" stroke-linecap="round"/>

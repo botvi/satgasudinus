@@ -47,5 +47,5 @@
       </div>
     </div>
   </div>
-  <div class="footer__legal">© {{ date('Y') }} Satgas PPK</div>
+  <div class="footer__legal">© {{ date('Y') }} Satgas PPK · Created by <a href="https://firstudio.id" target="_blank" rel="noopener">firstudio.id</a></div>
 </footer>

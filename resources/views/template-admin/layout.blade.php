@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/demo.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -70,6 +71,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
+      <link rel="stylesheet" href="{{ asset('admin/theme.css') }}?v={{ filemtime(public_path('admin/theme.css')) }}" />
   </head>
 
   <body>
@@ -97,19 +99,7 @@
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
-              <!-- /Search -->
+              
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->

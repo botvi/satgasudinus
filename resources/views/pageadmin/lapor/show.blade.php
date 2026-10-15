@@ -1,97 +1,75 @@
 @extends('template-admin.layout')
 
 @section('content')
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Detail Laporan /</span> {{ $lapor->nama_lengkap }}</h4>
-
-        <!-- Identitas Card -->
-        <div class="card mb-4">
-            <h5 class="card-header text-primary">Identitas</h5>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <strong>Nama Lengkap:</strong> {{ $lapor->nama_lengkap }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Nomor Identitas:</strong> {{ $lapor->nomor_identitas }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Alamat:</strong> {{ $lapor->alamat }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>No. HP:</strong> {{ $lapor->no_hp }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Email:</strong> {{ $lapor->email }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Unit Kerja / Fakultas / Instansi:</strong> {{ $lapor->nama_unit_kerja_fakultas_instansi }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>File Identitas:</strong> 
-                            @if ($lapor->file_identitas)
-                                <a href="{{ asset('identitas/' . $lapor->file_identitas) }}" target="_blank">Lihat File</a>
-                            @else
-                                Tidak ada file identitas
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <strong>Status Pelapor:</strong> {{ $lapor->status_pelapor }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Kategori:</strong> {{ $lapor->kategori }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Nama Lengkap Terlapor:</strong> {{ $lapor->nama_lengkap_terlapor }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Status Terlapor:</strong> {{ $lapor->status_terlapor }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>No. HP Terlapor:</strong> {{ $lapor->no_hp_terlapor }}
-                        </div>
-                    </div>
-                </div>
-            </div>
+@php
+    $file = function ($dir, $name, $label) {
+        if (! $name) return '<div class="file is-empty"><b>' . e($label) . '</b><span>Tidak ada file</span></div>';
+        $url = asset($dir . '/' . $name);
+        $img = preg_match('/\.(jpe?g|png|webp)$/i', $name) ? '<img src="' . e($url) . '" alt="' . e($label) . '">' : '';
+        return '<a class="file" href="' . e($url) . '" target="_blank" rel="noopener">' . $img . '<b>' . e($label) . '</b><span>Buka file</span></a>';
+    };
+@endphp
+<div class="container-xxl flex-grow-1 container-p-y">
+    <a class="crumb" href="{{ route('lapor.index') }}">← Semua laporan</a>
+    <div class="pg-head">
+        <div>
+            <h1>Laporan #{{ $lapor->id }} · {{ $lapor->nama_lengkap }}</h1>
+            <p>
+                <span class="pill">{{ $lapor->status_pelapor }}</span>
+                <span class="pill {{ $lapor->kategori === 'Korban' ? 'pill--alert' : '' }}">{{ $lapor->kategori }}</span>
+                <span class="ms-1">Dilaporkan {{ $lapor->created_at?->locale('id')->translatedFormat('j F Y, H:i') }}</span>
+            </p>
         </div>
-
-        <!-- Peristiwa Card -->
-        <div class="card mb-4">
-            <h5 class="card-header text-primary">Peristiwa</h5>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <strong>Peristiwa:</strong> {{ $lapor->peristiwa }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Tanggal Peristiwa:</strong> {{ $lapor->tanggal_peristiwa }}
-                        </div>
-                        <div class="mb-3">
-                            <strong>Lokasi Peristiwa:</strong> {{ $lapor->lokasi_peristiwa }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <strong>Kronologi Peristiwa:</strong> {!! nl2br(e($lapor->kronologi_peristiwa)) !!}
-                        </div>
-                        <div class="mb-3">
-                            <strong>File Bukti Tindakan:</strong> 
-                            @if ($lapor->file_bukti_tindakan)
-                                <a href="{{ asset('buktitindakan/' . $lapor->file_bukti_tindakan) }}" target="_blank">Lihat File</a>
-                            @else
-                                Tidak ada file bukti tindakan
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="act">
+            <a href="{{ route('lapor.download', $lapor->id) }}" class="btn btn-primary">Unduh PDF</a>
+            <form action="{{ route('lapor.destroy', $lapor->id) }}" method="POST" class="d-inline delete-form">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Hapus</button>
+            </form>
         </div>
-
-        <a href="{{ route('lapor.index') }}" class="btn btn-danger">Kembali</a>
-        <a href="{{ route('lapor.download', $lapor->id) }}" class="btn btn-success">Unduh PDF</a>
     </div>
+
+    <div class="det">
+        <div>
+            <div class="card mb-4"><div class="card-body">
+                <h2 class="ct">Peristiwa</h2>
+                <dl class="dl">
+                    <div><dt>Jenis peristiwa</dt><dd>{{ $lapor->peristiwa }}</dd></div>
+                    <div><dt>Tanggal</dt><dd>{{ \Illuminate\Support\Carbon::parse($lapor->tanggal_peristiwa)->locale('id')->translatedFormat('j F Y') }}</dd></div>
+                    <div><dt>Lokasi</dt><dd>{{ $lapor->lokasi_peristiwa }}</dd></div>
+                    <div><dt>Kronologi</dt><dd class="kron">{{ $lapor->kronologi_peristiwa }}</dd></div>
+                </dl>
+            </div></div>
+
+            <div class="row g-4">
+                <div class="col-md-6"><div class="card h-100"><div class="card-body">
+                    <h2 class="ct">Pelapor</h2>
+                    <dl class="dl">
+                        <div><dt>Nama</dt><dd>{{ $lapor->nama_lengkap }}</dd></div>
+                        <div><dt>Nomor identitas</dt><dd>{{ $lapor->nomor_identitas }}</dd></div>
+                        <div><dt>Alamat</dt><dd>{{ $lapor->alamat }}</dd></div>
+                        <div><dt>No. HP</dt><dd>{{ $lapor->no_hp }}</dd></div>
+                        <div><dt>Email</dt><dd>{{ $lapor->email }}</dd></div>
+                        <div><dt>Unit / instansi</dt><dd>{{ $lapor->nama_unit_kerja_fakultas_instansi }}</dd></div>
+                    </dl>
+                </div></div></div>
+                <div class="col-md-6"><div class="card h-100"><div class="card-body">
+                    <h2 class="ct">Terlapor</h2>
+                    <dl class="dl">
+                        <div><dt>Nama</dt><dd>{{ $lapor->nama_lengkap_terlapor }}</dd></div>
+                        <div><dt>Status</dt><dd>{{ $lapor->status_terlapor }}</dd></div>
+                        <div><dt>No. HP</dt><dd>{{ $lapor->no_hp_terlapor }}</dd></div>
+                    </dl>
+                </div></div></div>
+            </div>
+        </div>
+
+        <aside class="card"><div class="card-body">
+            <h2 class="ct">Berkas</h2>
+            {!! $file('identitas', $lapor->file_identitas, 'File identitas') !!}
+            {!! $file('buktitindakan', $lapor->file_bukti_tindakan, 'Bukti tindakan / lokasi') !!}
+        </div></aside>
+    </div>
+</div>
 @endsection

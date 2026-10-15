@@ -8,7 +8,7 @@
 <link rel="icon" type="image/x-icon" href="{{ asset('env') }}/udinus.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('web/site.css') }}?v={{ filemtime(public_path('web/site.css')) }}">
 <style>
 body{min-height:100vh;display:grid;place-items:center;padding:24px var(--gutter);background:linear-gradient(160deg,var(--brand-deep),var(--brand) 55%,var(--brand-bright))}
