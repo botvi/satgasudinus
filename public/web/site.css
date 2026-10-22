@@ -483,9 +483,8 @@ textarea.dock__in{max-height:160px;border-radius:20px}
 .gal__dot[aria-current="true"]::before{width:22px;border-radius:4px;background:var(--brand)}
 
 /* ================= FAQ ================= */
-.faq{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(28px,4vw,56px);align-items:start}
-.faq__main{grid-column:1/9;min-width:0}
-.faq__side{grid-column:9/13;position:sticky;top:calc(var(--header-h) + 24px)}
+.faq{display:grid;gap:clamp(32px,4vw,48px)}
+.faq__main{min-width:0}
 .faq__tools .search{max-width:none;margin-bottom:16px}
 .faq__tools .gtoolbar{margin-bottom:14px}
 .faq__count{margin:0 0 10px;color:var(--muted);font-size:.9rem;font-weight:600}
@@ -502,9 +501,18 @@ textarea.dock__in{max-height:160px;border-radius:20px}
 .faq__a ul{padding-left:1.2em;display:grid;gap:4px}
 .faq__a>div>:last-child{margin-bottom:22px}
 .faq__a a{color:var(--brand);font-weight:700}
-@media (max-width:1023px){
-  .faq__main,.faq__side{grid-column:1/-1}
-  .faq__side{position:static}
+.faq__pages{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px}
+.faq__pages[hidden]{display:none}
+.faq__pages button{min-width:44px;min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:600 .95rem/1 var(--font-body);cursor:pointer}
+.faq__pages button:hover:not(:disabled):not([aria-current="page"]){border-color:var(--brand-bright)}
+.faq__pages button[aria-current="page"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.faq__pages button:disabled{opacity:.4;cursor:default}
+.faq__help .lp-card{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:8px 32px;align-items:center;padding:22px 28px}
+.faq__help .lp-card h2,.faq__help .lp-card p{margin:0}
+.faq__help .lp-card p:last-child{text-align:right}
+@media (max-width:719px){
+  .faq__help .lp-card{grid-template-columns:1fr;padding:20px 22px}
+  .faq__help .lp-card p:last-child{text-align:left}
 }
 
 /* ---------- Responsive ---------- */
