@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span>{{ __('Verify PIN') }}</span>
-                    <a href="/change-pin" class="btn btn-sm btn-warning">
+                    <a href="/profil#pin" class="btn btn-sm btn-warning">
                         Ubah PIN
                     </a>
                 </div>

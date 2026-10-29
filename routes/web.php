@@ -16,7 +16,8 @@ use App\Http\Controllers\{
     LoginController,
     WebLainnyaController,
     AdminPasswordController,
-    SettingController
+    SettingController,
+    ProfileController
 };
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,12 @@ Route::delete('kegiatans/{id}', [KegiatanController::class, 'destroy'])->name('k
 Route::get('/pengaturan', [SettingController::class, 'edit'])->name('settings.edit');
 Route::put('/pengaturan', [SettingController::class, 'update'])->name('settings.update');
 
+Route::get('/profil', [ProfileController::class, 'edit'])->name('profil.edit');
+Route::put('/profil/username', [ProfileController::class, 'updateUsername'])->name('profil.username');
+Route::put('/profil/password', [ProfileController::class, 'updatePassword'])->name('profil.password');
+Route::put('/profil/pin', [ProfileController::class, 'updatePin'])->name('profil.pin');
+Route::redirect('/change-pin', '/profil#pin');
+
 Route::get('/dokumens', [DokumenController::class, 'index'])->name('dokumens.index');
 Route::get('/dokumens/create', [DokumenController::class, 'create'])->name('dokumens.create');
 Route::post('/dokumens', [DokumenController::class, 'store'])->name('dokumens.store');
@@ -80,10 +87,6 @@ Route::get('/lapor/download/{id}', [LaporController::class, 'download'])->name('
 
 Route::get('/verify-password', [AdminPasswordController::class, 'showVerifyPasswordForm'])->name('admin.verify-password');
 Route::post('/verify-password', [AdminPasswordController::class, 'verifyPassword'])->name('admin.verify-password.post');
-
-Route::get('/change-pin', [AdminPasswordController::class, 'showChangePinForm'])->name('user.change-pin');
-Route::post('/change-pin', [AdminPasswordController::class, 'changePin'])->name('user.change-pin.post');
-
 
 });
 

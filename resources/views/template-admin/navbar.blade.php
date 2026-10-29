@@ -47,6 +47,12 @@
                 <div data-i18n="Analytics">Pengaturan Situs</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('profil') ? 'active' : '' }}">
+            <a href="/profil" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Profil</div>
+            </a>
+        </li>
     </ul>
     
 </aside>
