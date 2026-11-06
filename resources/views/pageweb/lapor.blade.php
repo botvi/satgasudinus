@@ -18,7 +18,7 @@
           <span class="logo-img chat__av" role="img" aria-label="Logo Satgas PPKS UDINUS"></span>
           <div>
             <h2>Asisten pelaporan</h2>
-            <p id="chat-prog">0 dari 17 pertanyaan dijawab</p>
+            <p id="chat-prog">0 dari 18 pertanyaan dijawab</p>
           </div>
           <button class="chat__reset" type="button" id="chat-reset">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
@@ -40,7 +40,7 @@
           <ul>
             <li>Foto atau pindaian KTP atau KTM</li>
             <li>Data terlapor, jika Anda tahu</li>
-            <li>Tanggal, lokasi, dan kronologi</li>
+            <li>Tanggal, lokasi di dalam atau luar kampus, dan kronologi</li>
             <li>Bukti dalam jpg, jpeg, png, atau pdf</li>
           </ul>
         </section>

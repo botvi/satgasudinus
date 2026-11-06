@@ -45,7 +45,20 @@
       v: function (v) { return v.length >= 3 || 'Tulis jenis peristiwa, minimal 3 karakter.'; } },
     { id: 'tanggal', sec: 'peristiwa', label: 'Tanggal peristiwa', q: 'Kapan peristiwa itu terjadi?', type: 'date',
       v: function (v) { return (!!v && v <= todayISO()) || 'Pilih tanggal kejadian. Tanggal tidak boleh di masa depan.'; } },
-    { id: 'lokasi', sec: 'peristiwa', label: 'Lokasi peristiwa', q: 'Di mana kejadiannya?', type: 'text', ph: 'Masukkan Lokasi Peristiwa', ac: 'off',
+    { id: 'cakupan', sec: 'peristiwa', label: 'Dalam atau luar kampus', q: 'Di mana kejadiannya?', type: 'choice', options: ['Dalam kampus', 'Luar kampus'] },
+    { id: 'lokasi', sec: 'peristiwa', label: 'Lokasi peristiwa',
+      q: function () {
+        return luarKampus()
+          ? 'Sebutkan lokasinya di luar kampus. Termasuk jika terjadi saat praktik lapangan atau magang.'
+          : 'Sebutkan lokasinya di dalam kampus: gedung, ruangan, atau areanya.';
+      },
+      type: 'text',
+      ph: function () {
+        return luarKampus()
+          ? 'Contoh: rumah sakit tempat magang, atau lokasi praktik lapangan'
+          : 'Contoh: Gedung A ruang 201, laboratorium, atau area parkir';
+      },
+      ac: 'off',
       v: function (v) { return v.length >= 3 || 'Tulis lokasi kejadian, minimal 3 karakter.'; } },
     { id: 'kronologi', sec: 'peristiwa', label: 'Kronologi', q: 'Ceritakan kronologinya dengan kata-kata Anda sendiri. Tulis sebanyak yang Anda nyaman.', type: 'area', ph: 'Masukkan Kronologi Peristiwa',
       v: function (v) { return v.length >= 20 || 'Kronologi perlu sedikit lebih lengkap, minimal 20 karakter.'; } },
@@ -67,6 +80,8 @@
   function fmtSize(b) { return b < 1048576 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1048576).toFixed(1) + ' MB'; }
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
   function stepById(id) { for (var i = 0; i < STEPS.length; i++) if (STEPS[i].id === id) return STEPS[i]; return null; }
+  function stepText(step, key) { var v = step[key]; return typeof v === 'function' ? v() : v; }
+  function luarKampus() { var a = state.answers.cakupan; return !!(a && a.text === 'Luar kampus'); }
   function go(p) { p.catch(function (e) { if (e !== ABORT) console.error(e); }); }
   function el(html) { var t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; }
 
@@ -169,9 +184,9 @@
         field = el('<input class="dock__in" id="dock-in" type="' + (step.mode === 'email' ? 'email' : step.mode === 'tel' ? 'tel' : 'text') + '">');
         if (step.mode) field.setAttribute('inputmode', step.mode);
       }
-      if (step.ph) field.placeholder = step.ph;
+      if (step.ph) field.placeholder = stepText(step, 'ph');
       if (step.ac) field.setAttribute('autocomplete', step.ac);
-      field.setAttribute('aria-label', step.q);
+      field.setAttribute('aria-label', stepText(step, 'q'));
       var send = el('<button class="send" type="submit" aria-label="Kirim jawaban">' + ICON_SEND + '</button>');
       form.appendChild(field); form.appendChild(send);
       if (step.type === 'area') {
@@ -208,7 +223,7 @@
         await say(sec.intro);
       }
     }
-    await say(s.q);
+    await say(stepText(s, 'q'));
     if (id !== runId) throw ABORT;
     update();
     renderDock(s);
@@ -288,7 +303,7 @@
     fd.append('no_hp_terlapor', A('hpT') || '-');
     fd.append('peristiwa', A('jenis'));
     fd.append('tanggal_peristiwa', A('tanggal'));
-    fd.append('lokasi_peristiwa', A('lokasi'));
+    fd.append('lokasi_peristiwa', (A('cakupan') ? A('cakupan') + ' — ' : '') + A('lokasi'));
     fd.append('kronologi_peristiwa', A('kronologi'));
     if (data.bukti && data.bukti.blob) fd.append('file_bukti_tindakan', data.bukti.blob);
     var form = document.getElementById('chat-form');
